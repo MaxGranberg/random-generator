@@ -6,27 +6,43 @@ class StringGenerator {
   /**
    * Creates a new StringGenerator instance.
    *
-   * @param {number} stringLength - If user wants a specific length for the string.
-   * If not specified the default length is 10 characters.
+   * @param {number} [customLength=10] - If user wants a specific length for the string.
+   * If not specified the default length is set to 10 characters.
    */
-  constructor (stringLength = 10) {
-    this.defaultStringLength = stringLength
+  constructor (customLength = 10) {
+    this.validateLengthInput(customLength)
+
+    this.defaultStringLength = customLength
     this.characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
   }
 
   /**
    * Generates a random string from alphabetic characters.
    *
-   * @param {number} stringLength - If user wants a specific length for the string otherwise 10 characters long.
+   * @param {number} [customLength=this.defaultStringLength] - The length of the string,
+   * if not specified it takes the default value set in the constructor.
    * @returns {string} finalString - A randomly generated string.
    */
-  generateRandomString (stringLength = this.defaultStringLength) {
+  generateRandomString (customLength = this.defaultStringLength) {
+    this.validateLengthInput(customLength)
+
     let finalString = ''
 
-    for (let i = 0; i < stringLength; i++) {
+    for (let i = 0; i < customLength; i++) {
       finalString += this.characters.charAt(Math.floor(Math.random() * this.characters.length))
     }
     return finalString
+  }
+
+  /**
+   * Validation for the customLength parameter that the user can input.
+   *
+   * @param {number} customLength - The parameter to validate.
+   */
+  validateLengthInput (customLength) {
+    if (typeof customLength !== 'number' || customLength <= 0) {
+      throw new Error('customLength parameter must be a postitive number')
+    }
   }
 }
 
