@@ -11,6 +11,7 @@ class DateGenerator {
    * If not specified it sets default to 2100-01-01.
    */
   constructor (startDate = new Date('1900-01-01'), endDate = new Date('2100-01-01')) {
+    this.validateDateRange(startDate, endDate)
     this.startDate = startDate
     this.endDate = endDate
   }
@@ -25,11 +26,29 @@ class DateGenerator {
    * @returns {Date} generatedDate - The random generated date.
    */
   generateRandomDate (startDate = this.startDate, endDate = this.endDate) {
+    this.validateDateRange(startDate, endDate)
+
     const timeDifference = endDate.getTime() - startDate.getTime()
     const randomTimeInRange = Math.random() * timeDifference
 
     const generatedDate = new Date(startDate.getTime() + randomTimeInRange)
     return generatedDate
+  }
+
+  /**
+   * Validation for the startDate and endDate parameters.
+   *
+   * @param {Date} startDate - Earliest date that the user wants for the range of dates.
+   * @param {Date} endDate - Latest date that the user wants for the range of dates.
+   */
+  validateDateRange (startDate, endDate) {
+    if (!(startDate instanceof Date) || !(endDate instanceof Date) || isNaN(startDate) || isNaN(endDate)) {
+      throw new Error('Must be a valid Date object')
+    }
+
+    if (startDate >= endDate) {
+      throw new Error('The startDate must be prior to the endDate')
+    }
   }
 }
 
