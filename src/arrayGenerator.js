@@ -24,6 +24,9 @@ class ArrayGenerator {
    * @returns {Array} generatedArray - The random generated array.
    */
   generateRandomNumbersArray (lengthOfArray = this.lengthOfArray, minValueInArray = 1, maxValueInArray = 10000) {
+    this.validateLengthOfArray(lengthOfArray)
+    this.validateNumberArray(minValueInArray, maxValueInArray)
+
     const generatedArray = []
 
     for (let i = 0; i < lengthOfArray; i++) {
@@ -31,6 +34,29 @@ class ArrayGenerator {
     }
 
     return generatedArray
+  }
+
+  /**
+   * Validation for the custom length of an array generated.
+   *
+   * @param {number} lengthOfArray - The custom length a user wants for their array.
+   */
+  validateLengthOfArray (lengthOfArray) {
+    if (lengthOfArray <= 0) {
+      throw new Error('lengthOfArray must be a positive number larger than 0')
+    }
+  }
+
+  /**
+   * Validation for the minimum and maximum value inputs into their numbersArray.
+   *
+   * @param {number} minValue - The minimum value a user wants for their array.
+   * @param {number} maxValue - The maximum value a user wants for their array.
+   */
+  validateNumberArray (minValue, maxValue) {
+    if (minValue > maxValue) {
+      throw new Error('minValueInArray must be less than maxValueInArray')
+    }
   }
 }
 
