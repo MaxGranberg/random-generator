@@ -3,33 +3,23 @@
  * It uses the english alphabet, both lower and upper case.
  */
 class StringGenerator {
-  /**
-   * Creates a new StringGenerator instance.
-   *
-   * @param {number} [customLength=10] - If user wants a specific length for the string.
-   * If not specified the default length is set to 10 characters.
-   */
-  constructor (customLength = 10) {
-    this.validateLengthInput(customLength)
-
-    this.defaultStringLength = customLength
-    this.characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-  }
+  #defaultLength = 10
+  #characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
   /**
    * Generates a random string from alphabetic characters.
    *
-   * @param {number} [customLength=this.defaultStringLength] - The length of the string,
-   * if not specified it takes the default value set in the constructor.
+   * @param {number} [customLength=this.#defaultLength] - The length of the string,
+   * If not specified it takes the default value of 10.
    * @returns {string} finalString - A randomly generated string.
    */
-  generateRandomString (customLength = this.defaultStringLength) {
-    this.validateLengthInput(customLength)
+  generateRandomString (customLength = this.#defaultLength) {
+    this.#validateLengthInput(customLength)
 
     let finalString = ''
 
     for (let i = 0; i < customLength; i++) {
-      finalString += this.characters.charAt(Math.floor(Math.random() * this.characters.length))
+      finalString += this.#characters.charAt(Math.floor(Math.random() * this.#characters.length))
     }
     return finalString
   }
@@ -39,7 +29,7 @@ class StringGenerator {
    *
    * @param {number} customLength - The parameter to validate.
    */
-  validateLengthInput (customLength) {
+  #validateLengthInput (customLength) {
     if (typeof customLength !== 'number' || customLength <= 0) {
       throw new Error('customLength parameter must be a postitive number')
     }
