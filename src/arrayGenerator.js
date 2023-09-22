@@ -1,20 +1,23 @@
-const DEFAULT_ARRAY_LENGTH = 10
-const MIN_VALUE_IN_ARRAY = 1
-const MAX_VALUE_IN_ARRAY = 10000
+import StringGenerator from './stringGenerator.js'
 
 /**
  * Generates a random array.
  */
 class ArrayGenerator {
   #lengthOfArray
+  #defaultArrayLength = 10
+  #minValueInArray = 1
+  #maxValueInArray = 10000
+  #stringMaxLength = 10
+  #stringMinLength = 1
 
   /**
    * Creates a new ArrayGenerator instance.
    *
-   * @param {number} [lengthOfArray=DEFAULT_ARRAY_LENGTH] - Desired length of array to generate.
+   * @param {number} [lengthOfArray=#defaultArrayLength] - Desired length of array to generate.
    * If not specified the default length is set to 10.
    */
-  constructor (lengthOfArray = DEFAULT_ARRAY_LENGTH) {
+  constructor (lengthOfArray = this.#defaultArrayLength) {
     this.#validateLengthOfArray(lengthOfArray)
     this.#lengthOfArray = lengthOfArray
   }
@@ -22,19 +25,41 @@ class ArrayGenerator {
   /**
    * Generates a random array of numbers.
    *
-   * @param {number} [minValueInArray=MIN_VALUE_IN_ARRAY] - Desired minimum value a index can have in the generated array.
-   * If not specified the maximum value is set to a default value of 1.
-   * @param {number} [maxValueInArray=MAX_VALUE_IN_ARRAY] - Desired maximum value a index can have in the generated array.
+   * @param {number} [minValueInArray=this.#minValueInArray] - Desired minimum value a index can have in the generated array.
+   * If not specified the minimum value is set to a default value of 1.
+   * @param {number} [maxValueInArray=this.#maxValueInArray] - Desired maximum value a index can have in the generated array.
    * If not specified the maximum value is set to a default value of 10 000.
    * @returns {Array} generatedArray - The random generated array.
    */
-  generateRandomNumbersArray (minValueInArray = MIN_VALUE_IN_ARRAY, maxValueInArray = MAX_VALUE_IN_ARRAY) {
+  generateRandomNumbersArray (minValueInArray = this.#minValueInArray, maxValueInArray = this.#maxValueInArray) {
     this.#validateNumberArray(minValueInArray, maxValueInArray)
 
     const generatedArray = []
 
     for (let i = 0; i < this.#lengthOfArray; i++) {
-      generatedArray.push(Math.floor(Math.random() * (maxValueInArray - minValueInArray + 1) + minValueInArray)) // Push random number between minValue and maxValue
+      const randomLength = Math.floor(Math.random() * (maxValueInArray - minValueInArray + 1) + minValueInArray)
+      generatedArray.push(randomLength)
+    }
+
+    return generatedArray
+  }
+
+  /**
+   * Generates a random array of strings.
+   *
+   * @param {number} [minStringLength=this.#stringMinLength] - The minimum length a string can be in the array.
+   * If not specified the minimum length is set to a default value of 1.
+   * @param {number} [maxStringLength=this.#stringMaxLength] - The maximum length a string can be in the array.
+   * If not specified the maximum length is set to a default value of 10.
+   * @returns {Array} generatedArray - The random generated array.
+   */
+  generateRandomStringsArray (minStringLength = this.#stringMinLength, maxStringLength = this.#stringMaxLength) {
+    const stringGenerator = new StringGenerator()
+    const generatedArray = []
+
+    for (let i = 0; i < this.#lengthOfArray; i++) {
+      const randomLength = Math.floor(Math.random() * (maxStringLength - minStringLength + 1) + minStringLength)
+      generatedArray.push(stringGenerator.generateRandomString(randomLength))
     }
 
     return generatedArray
