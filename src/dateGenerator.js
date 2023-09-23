@@ -2,31 +2,19 @@
  * Generates a random date within a specified range. If no range is specified it sets a default range in the constructor.
  */
 class DateGenerator {
-  /**
-   * Creates a new DateGenerator instance.
-   *
-   * @param {Date} [startDate=1900-01-01] - The start date for the range of dates to generate from.
-   * If not specified it sets default to 1900-01-01.
-   * @param {Date} [endDate=2100-01-01] - The end date for the range of dates to generate from.
-   * If not specified it sets default to 2100-01-01.
-   */
-  constructor (startDate = new Date('1900-01-01'), endDate = new Date('2100-01-01')) {
-    this.validateDateRange(startDate, endDate)
-    this.startDate = startDate
-    this.endDate = endDate
-  }
-
+  #defaultStartDate = new Date('1900-01-01')
+  #defaultEndDate = new Date('2100-01-01')
   /**
    * Generates a random date within the range of startDate and endDate.
    *
-   * @param {Date} [startDate=this.startDate] - The start date for the range of dates to generate from.
+   * @param {Date} [startDate=this.#defaultStartDate] - The start date for the range of dates to generate from.
    * If not specified it sets default to 1900-01-01.
-   * @param {Date} [endDate=this.endDate] - The end date for the range of dates to generate from.
+   * @param {Date} [endDate=this.#defaultEndDate] - The end date for the range of dates to generate from.
    * If not specified it sets default to 2100-01-01.
    * @returns {Date} generatedDate - The random generated date.
    */
-  generateRandomDate (startDate = this.startDate, endDate = this.endDate) {
-    this.validateDateRange(startDate, endDate)
+  generateRandomDate (startDate = this.#defaultStartDate, endDate = this.#defaultEndDate) {
+    this.#validateDateRange(startDate, endDate)
 
     const timeDifference = endDate.getTime() - startDate.getTime()
     const randomTimeInRange = Math.random() * timeDifference
@@ -41,7 +29,7 @@ class DateGenerator {
    * @param {Date} startDate - Earliest date that the user wants for the range of dates.
    * @param {Date} endDate - Latest date that the user wants for the range of dates.
    */
-  validateDateRange (startDate, endDate) {
+  #validateDateRange (startDate, endDate) {
     if (!(startDate instanceof Date) || !(endDate instanceof Date) || isNaN(startDate) || isNaN(endDate)) {
       throw new Error('Must be a valid Date object')
     }
