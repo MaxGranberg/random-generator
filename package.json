@@ -4,7 +4,9 @@
   "description": "Generates random strings, dates, arrays, colors and numbers for you.",
   "main": "src/index.js",
   "type": "module",
-  "files": ["src/"],
+  "files": [
+    "src/"
+  ],
   "scripts": {
     "test": "jest"
   },
@@ -18,10 +20,11 @@
     "url": "https://github.com/MaxGranberg/random-generator/issues"
   },
   "homepage": "https://github.com/MaxGranberg/random-generator#readme",
-  "dependencies": {
-  },
   "devDependencies": {
+    "@babel/core": "^7.22.20",
+    "@babel/preset-env": "^7.22.20",
     "@lnu/eslint-config": "^1.1.10",
+    "babel-jest": "^29.7.0",
     "jest": "^29.7.0"
   }
 }
