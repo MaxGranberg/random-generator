@@ -31,7 +31,7 @@ class DateGenerator {
    */
   #validateDateRange (startDate, endDate) {
     if (!(startDate instanceof Date) || !(endDate instanceof Date) || isNaN(startDate) || isNaN(endDate)) {
-      throw new Error('Must be a valid Date object')
+      throw new Error('startDate and endDate must be a valid Date object')
     }
 
     if (startDate >= endDate) {
