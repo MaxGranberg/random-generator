@@ -67,7 +67,7 @@ class ArrayGenerator {
    */
   #validateLengthOfArray (lengthOfArray) {
     if (lengthOfArray <= 0) {
-      throw new Error('lengthOfArray must be a positive number larger than 0')
+      throw new Error('Custom length of array must be a number greater than zero')
     }
   }
 
@@ -78,8 +78,8 @@ class ArrayGenerator {
    * @param {number} maxValue - The maximum value a user wants for their array.
    */
   #validateNumberArray (minValue, maxValue) {
-    if (minValue > maxValue) {
-      throw new Error('minValueInArray must be less than maxValueInArray')
+    if (minValue >= maxValue) {
+      throw new Error('Minimum value in the custom range must be less than the maximum value')
     }
   }
 
@@ -91,11 +91,11 @@ class ArrayGenerator {
    */
   #validateStringArray (minStringLength, maxStringLength) {
     if (minStringLength < 1) {
-      throw new Error('String length must be more than 1')
+      throw new Error('Custom string length must be greater than zero')
     }
 
-    if (maxStringLength < minStringLength) {
-      throw new Error('Maximum string length must be larger than the minimum string length')
+    if (minStringLength >= maxStringLength) {
+      throw new Error('Minimum string length must be less than maximum string length')
     }
   }
 }
