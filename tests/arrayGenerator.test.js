@@ -50,6 +50,20 @@ describe('ArrayGenerator', () => {
         arrayGenerator.generateRandomNumbersArray(customLength)
       }).toThrow('Custom length of array must be a number greater than zero')
     })
+
+    it('should throw an error if input arguments are not of type number', () => {
+      const customLength = 15
+      expect(() => {
+        arrayGenerator.generateRandomNumbersArray(customLength, 'test', 'test2')
+      }).toThrow('Values must be of type number')
+    })
+
+    it('should throw an error if custom length input argument is not a number', () => {
+      const customLength = 'test'
+      expect(() => {
+        arrayGenerator.generateRandomNumbersArray(customLength, 10, 20)
+      }).toThrow('Custom length value must be of type number')
+    })
   })
 
   describe('generateRandomStringsArray', () => {
@@ -104,6 +118,20 @@ describe('ArrayGenerator', () => {
       expect(() => {
         arrayGenerator.generateRandomStringsArray(customLength)
       }).toThrow('Custom length of array must be a number greater than zero')
+    })
+
+    it('should throw an error if input arguments are not of type number', () => {
+      const customLength = 15
+      expect(() => {
+        arrayGenerator.generateRandomStringsArray(customLength, 'hej', true)
+      }).toThrow('Custom string length inputs must be of type number')
+    })
+
+    it('should throw an error if custom length input argument is not a number', () => {
+      const customLength = 'test'
+      expect(() => {
+        arrayGenerator.generateRandomStringsArray(customLength, 10, 20)
+      }).toThrow('Custom length value must be of type number')
     })
   })
 })
