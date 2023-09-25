@@ -49,6 +49,7 @@ class ArrayGenerator {
   generateRandomStringsArray (lengthOfArray = this.#defaultArrayLength, minStringLength = this.#stringMinLength, maxStringLength = this.#stringMaxLength) {
     this.#validateLengthOfArray(lengthOfArray)
     this.#validateStringArray(minStringLength, maxStringLength)
+
     const stringGenerator = new StringGenerator()
     const generatedArray = []
 
@@ -69,25 +70,33 @@ class ArrayGenerator {
     if (lengthOfArray <= 0) {
       throw new Error('Custom length of array must be a number greater than zero')
     }
-  }
 
-  /**
-   * Validation for the minimum and maximum value inputs into their numbersArray.
-   *
-   * @param {number} minValue - The minimum value a user wants for their array.
-   * @param {number} maxValue - The maximum value a user wants for their array.
-   */
-  #validateNumberArray (minValue, maxValue) {
-    if (minValue >= maxValue) {
-      throw new Error('Minimum value in the custom range must be less than the maximum value')
+    if (typeof lengthOfArray !== 'number') {
+      throw new Error('Custom length value must be of type number')
     }
   }
 
   /**
    * Validation for the minimum and maximum value inputs into their numbersArray.
    *
-   * @param {number} minStringLength - The minimum value a user wants for their array.
-   * @param {number} maxStringLength - The minimum value a user wants for their array.
+   * @param {number} minValue - The minimum value a user wants for their range in their array.
+   * @param {number} maxValue - The maximum value a user wants for their range in their array.
+   */
+  #validateNumberArray (minValue, maxValue) {
+    if (minValue >= maxValue) {
+      throw new Error('Minimum value in the custom range must be less than the maximum value')
+    }
+
+    if (typeof minValue !== 'number' || typeof maxValue !== 'number') {
+      throw new Error('Values must be of type number')
+    }
+  }
+
+  /**
+   * Validation for the minimum and maximum string length a user wants for each string in their array.
+   *
+   * @param {number} minStringLength - The minimum length a user wants for a string in their array.
+   * @param {number} maxStringLength - The maximum length a user wants for a string in their array.
    */
   #validateStringArray (minStringLength, maxStringLength) {
     if (minStringLength < 1) {
@@ -96,6 +105,10 @@ class ArrayGenerator {
 
     if (minStringLength >= maxStringLength) {
       throw new Error('Minimum string length must be less than maximum string length')
+    }
+
+    if (typeof minStringLength !== 'number' || typeof maxStringLength !== 'number') {
+      throw new Error('Custom string length inputs must be of type number')
     }
   }
 }
