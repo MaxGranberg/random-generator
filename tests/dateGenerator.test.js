@@ -25,30 +25,25 @@ describe('DateGenerator', () => {
     it('should throw an error if startDate or endDate is not a valid date', () => {
       expect(() => {
         dateGenerator.generateRandomDate('1996-03-29', new Date('2023-12-12'))
-          .toThrow('startDate and endDate must be a valid Date object')
-      })
+      }).toThrow('startDate and endDate must be a valid Date object')
 
       expect(() => {
         dateGenerator.generateRandomDate(new Date('1996-03-29'), '2023-12-12')
-          .toThrow('startDate and endDate must be a valid Date object')
-      })
+      }).toThrow('startDate and endDate must be a valid Date object')
 
       expect(() => {
         dateGenerator.generateRandomDate(new Date('1996-23-29'), new Date('2022-10-08'))
-          .toThrow('startDate and endDate must be a valid Date object')
-      })
+      }).toThrow('startDate and endDate must be a valid Date object')
     })
 
     it('should throw an error if startDate occurs after endDate', () => {
       expect(() => {
         dateGenerator.generateRandomDate(new Date('2024-05-01'), new Date('2023-12-12'))
-          .toThrow('The startDate must be prior to the endDate')
-      })
+      }).toThrow('The startDate must be prior to the endDate')
 
       expect(() => {
         dateGenerator.generateRandomDate(new Date('2023-12-12'), new Date('2023-12-12'))
-          .toThrow('The startDate must be prior to the endDate')
-      })
+      }).toThrow('The startDate must be prior to the endDate')
     })
   })
 })

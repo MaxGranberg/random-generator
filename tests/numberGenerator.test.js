@@ -23,27 +23,23 @@ describe('NumberGenerator', () => {
     it('should thrown an error when minValue is larger than maxValue', () => {
       expect(() => {
         numberGenerator.generateRandomNumber(30, 20)
-          .toThrow('The minValue must be smaller than the maxValue')
-      })
+      }).toThrow('The minValue must be smaller than the maxValue')
     })
 
     it('should thrown an error when minValue is equal to maxValue', () => {
       expect(() => {
         numberGenerator.generateRandomNumber(20, 20)
-          .toThrow('The minValue must be smaller than the maxValue')
-      })
+      }).toThrow('The minValue must be smaller than the maxValue')
     })
 
     it('should thrown an error when non-number values are passed as arguments', () => {
       expect(() => {
         numberGenerator.generateRandomNumber('test', 20)
-          .toThrow('Values must be of type number')
-      })
+      }).toThrow('Values must be of type number')
 
       expect(() => {
         numberGenerator.generateRandomNumber(30, 'a')
-          .toThrow('Values must be of type number')
-      })
+      }).toThrow('Values must be of type number')
     })
   })
 })

@@ -25,15 +25,15 @@ describe('StringGenerator', () => {
     })
 
     it('should throw an error if specified length is a negative value', () => {
-      expect(() => stringGenerator.generateRandomString(-1).toThrow('customLength parameter must be a postitive number'))
+      expect(() => stringGenerator.generateRandomString(-1)).toThrow('customLength parameter must be a postitive number')
     })
 
     it('should throw an error if specified length is equal to zero', () => {
-      expect(() => stringGenerator.generateRandomString(0).toThrow('customLength parameter must be a postitive number'))
+      expect(() => stringGenerator.generateRandomString(0)).toThrow('customLength parameter must be a postitive number')
     })
 
     it('should throw an error if specified is not of type Number', () => {
-      expect(() => stringGenerator.generateRandomString('test').toThrow('customLength parameter must be a postitive number'))
+      expect(() => stringGenerator.generateRandomString('test')).toThrow('customLength parameter must be a postitive number')
     })
   })
 })
