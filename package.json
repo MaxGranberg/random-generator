@@ -1,5 +1,5 @@
 {
-  "name": "random-generator",
+  "name": "randomly-generate",
   "version": "1.0.0",
   "description": "Generates random strings, dates, arrays, colors and numbers for you.",
   "main": "src/index.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MaxGranberg/random-generator"
+    "url": "https://github.com/MaxGranberg/randomly-generate"
   },
   "author": "Max Granberg <mg224em@student.lnu.se>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MaxGranberg/random-generator/issues"
+    "url": "https://github.com/MaxGranberg/randomly-generate/issues"
   },
-  "homepage": "https://github.com/MaxGranberg/random-generator#readme",
+  "homepage": "https://github.com/MaxGranberg/randomly-generate#readme",
   "devDependencies": {
     "@babel/core": "^7.22.20",
     "@babel/preset-env": "^7.22.20",
