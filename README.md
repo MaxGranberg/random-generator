@@ -72,17 +72,17 @@ console.log(arrayGenerator.generateRandomStringsArray(5, 3, 8)) // Example outpu
 ```
 
 ## Contributions
-For any issues, bugs, feature requests or contributions please open an issue or a pull request on [GitHub](https://github.com/MaxGranberg/random-generator)
+For any issues, bugs, feature requests or contributions please open an issue or a pull request on [GitHub](https://github.com/MaxGranberg/randomly-generate)
 
 Here is a basic workflow if you wish to contribute:
-1. Fork the [repository](https://github.com/MaxGranberg/random-generator) to your GitHub account.
+1. Fork the [repository](https://github.com/MaxGranberg/randomly-generate) to your GitHub account.
 2. Clone it to your local machine.
 3. Navigate to your cloned repository's directory and install necessary dependencies using: npm install
 4. Create a new branch to work on.
 5. Make your changes/updates/improvements! Code, documentation or bug fixes, all is appreciated!
 6. Run tests using the command "npm test" to make sure everything works properly.
 7. Commit and push your changes back to your fork on GitHub.
-8. Open a pull request, go to [the original repository](https://github.com/MaxGranberg/random-generator) and click "New pull request". Select your fork and the branch you just pushed to.
+8. Open a pull request, go to [the original repository](https://github.com/MaxGranberg/randomly-generate) and click "New pull request". Select your fork and the branch you just pushed to.
 9. Provide a title and a brief description of your changes then click "Create pull request".
 
 Thank you for contributing!
