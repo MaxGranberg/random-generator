@@ -1,5 +1,16 @@
 # randomly-generate
-Gives you the possibility to randomly generate random data such as: strings, arrays, numbers, dates and colors.
+Gives you the possibility to generate random data such as: strings, arrays, numbers, dates and colors.
+
+## Table of contents
+- [Installation](#installation)
+- [Usage](#usage)
+  - [StringGenerator](#stringgenerator)
+  - [NumberGenerator](#numbergenerator)
+  - [DateGenerator](#dategenerator)
+  - [ColorGenerator](#colorgenerator)
+  - [ArrayGenerator](#arraygenerator)
+- [Contributions](#contributions)
+- [License](#license)
 
 ## Installation
 ```javascript
