@@ -1,4 +1,4 @@
-# Testreport
+# Test report
 Testing has been executed with automated unit-tests using the Jest framework. Each generator and its methods have been tested to make sure they returns the correct data and throws errors as expected.
 
 If you would like to recreate the tests you can follow this basic workflow:
@@ -20,6 +20,7 @@ If you would like to recreate the tests you can follow this basic workflow:
 |**NumberGenerator** - Generate a number in the default range | Call generateRandomNumbers() without arguments.| Passed - Generated a random number between 1 and 10 000.|
 |**NumberGenerator** - Generate a random number within a specified range| Call generateRandomNumber(10,20) where the minimum value a number can be is 10 and the maximum 20.| Passed - Generated a random number in the specified range.|
 |**NumberGenerator** - Error when minimum value argument is greater than the maximum value argument.| Call generateRandomNumber(30,20) | Passed - Error thrown correctly.|
+|**NumberGenerator** - Error when minimum value argument is equal to the maximum value argument.| Call generateRandomNumber(20,20) | Passed - Error thrown correctly.|
 |**NumberGenerator** - Error when arguments are not numbers | Call generateRandomNumbers('test', 20) and generateRandomNumber(30, 'a') | Passed - Error thrown correctly.|
 |**DateGenerator** - Generate a date in the default range | Call generateRandomDate() without arguments. | Passed - Generated a random date bewteen 1900-01-01 and 2100-01-01|
 |**DateGenerator** - Generate a date within a specified range.| Call generateRandomDate(startDate, endDate) where: startDate = new Date('1996-03-29) and endDate = new Date('2023-09-25') | Passed - Generated a random date within specified range.|
