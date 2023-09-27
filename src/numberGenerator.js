@@ -29,7 +29,7 @@ class NumberGenerator {
    * If not specified the range is the default value 1.
    * @param {number} [maxValue=this.#defaultMaxValue] - Maximum value that the user wants for the range of numbers.
    * If not specified the range is the default value 10000.
-   * @returns {number} randomNumber - A randomly generated even number.
+   * @returns {number} randomEvenNumber - A randomly generated even number.
    */
   generateRandomEvenNumber (minValue = this.#defaultMinValue, maxValue = this.#defaultMaxValue) {
     this.#validateRangeInput(minValue, maxValue)
@@ -50,7 +50,7 @@ class NumberGenerator {
    * If not specified the range is the default value 1.
    * @param {number} [maxValue=this.#defaultMaxValue] - Maximum value that the user wants for the range of numbers.
    * If not specified the range is the default value 10000.
-   * @returns {number} randomNumber - A randomly generated odd number.
+   * @returns {number} randomOddNumber - A randomly generated odd number.
    */
   generateRandomOddNumber (minValue = this.#defaultMinValue, maxValue = this.#defaultMaxValue) {
     this.#validateRangeInput(minValue, maxValue)
@@ -62,6 +62,23 @@ class NumberGenerator {
     }
 
     return randomOddNumber
+  }
+
+  /**
+   * Generates a random float number within a specified range.
+   *
+   * @param {number} [minValue=this.#defaultMinValue] - Minimum value that the user wants for the range of numbers.
+   * If not specified the range is the default value 1.
+   * @param {number} [maxValue=this.#defaultMaxValue] - Maximum value that the user wants for the range of numbers.
+   * If not specified the range is the default value 10000.
+   * @returns {number} randomFloatNumber - A randomly generated float number.
+   */
+  generateRandomFloatNumber (minValue = this.#defaultMinValue, maxValue = this.#defaultMaxValue) {
+    this.#validateRangeInput(minValue, maxValue)
+
+    const randomFloatNumber = Math.random() * (maxValue - minValue) + minValue
+
+    return randomFloatNumber
   }
 
   /**

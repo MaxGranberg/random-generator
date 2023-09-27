@@ -74,4 +74,20 @@ describe('NumberGenerator', () => {
       expect(number % 2).toBe(1)
     })
   })
+
+  describe('generateRandomFloatNumber', () => {
+    it('should generate a float number between 1 and 10000 when no arguments is passed', () => {
+      const number = numberGenerator.generateRandomFloatNumber()
+      expect(number).toBeGreaterThanOrEqual(1)
+      expect(number).toBeLessThanOrEqual(10000)
+      expect(Number.isInteger(number)).toBe(false)
+    })
+
+    it('should generate a float number within a specified range', () => {
+      const number = numberGenerator.generateRandomFloatNumber(10.9, 11)
+      expect(number).toBeGreaterThanOrEqual(10.9)
+      expect(number).toBeLessThanOrEqual(11)
+      expect(Number.isInteger(number)).toBe(false)
+    })
+  })
 })

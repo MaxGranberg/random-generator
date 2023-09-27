@@ -1,4 +1,5 @@
 import StringGenerator from './stringGenerator.js'
+import NumberGenerator from './numberGenerator.js'
 
 /**
  * Generates a random array.
@@ -56,6 +57,32 @@ class ArrayGenerator {
     for (let i = 0; i < lengthOfArray; i++) {
       const randomLength = this.#generateRandomNumber(minStringLength, maxStringLength)
       generatedArray.push(stringGenerator.generateRandomString(randomLength))
+    }
+
+    return generatedArray
+  }
+
+  /**
+   * Generates a random array of even numbers.
+   *
+   * @param {number} [lengthOfArray=#defaultArrayLength] - Desired length of array to generate.
+   * If not specified the default array length is set to 10.
+   * @param {number} [minValueInArray=this.#minValueInArray] - Desired minimum value a index can have in the generated array.
+   * If not specified the minimum value is set to a default value of 1.
+   * @param {number} [maxValueInArray=this.#maxValueInArray] - Desired maximum value a index can have in the generated array.
+   * If not specified the maximum value is set to a default value of 10 000.
+   * @returns {Array} generatedArray - The random generated array.
+   */
+  generateRandomEvenNumbersArray (lengthOfArray = this.#defaultArrayLength, minValueInArray = this.#minValueInArray, maxValueInArray = this.#maxValueInArray) {
+    this.#validateLengthOfArray(lengthOfArray)
+    this.#validateNumberArray(minValueInArray, maxValueInArray)
+
+    const numberGenerator = new NumberGenerator()
+    const generatedArray = []
+
+    for (let i = 0; i < lengthOfArray; i++) {
+      const randomEvenNumber = numberGenerator.generateRandomEvenNumber(minValueInArray, maxValueInArray)
+      generatedArray.push(randomEvenNumber)
     }
 
     return generatedArray

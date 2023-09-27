@@ -42,11 +42,14 @@ Generates a random number within a specified range of your choice. If no range i
 * generateRandomEvenNumber(minValue:number, maxValue:number) : Generates a random even number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
 
 * generateRandomOddNumber(minValue:number, maxValue:number) : Generates a random odd number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
+
+* generateRandomFloatNumber(minValue:number, maxValue:number) : Generates a random float number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
 ```javascript
 const numberGenerator = new NumberGenerator()
 console.log(numberGenerator.generateRandomNumber(20, 123)) // Example output: 42
 console.log(numberGenerator.generateRandomEvenNumber(20, 82)) // Example output: 24
 console.log(numberGenerator.generateRandomOddNumber(20, 100)) // Example output: 73
+console.log(numberGenerator.generateRandomFloatNumber(10.9, 11)) // Example output: 10.912345678910112
 ```
 ---
 ### DateGenerator
@@ -80,11 +83,14 @@ Can generate an array of random numbers within a specified range. Can also gener
 #### Methods
 * generateRandomNumbersArray(lengthOfArray:number, minValueInArray:number, maxValueInArray:number) : Generates an array of numbers. Only generates random numbers within the given range. If no range is specified the minValueInArray is set to 1 and the maxValueInArray is set to 10 000. If lengthOfArray is not specified the default lenght of the generated array is 10.
 
+* generateRandomEvenNumbersArray(lengthOfArray:number, minValueInArray:number, maxValueInArray:number) : Generates an array of even numbers. Only generates random even numbers within the given range. If no range is specified the minValueInArray is set to 1 and the maxValueInArray is set to 10 000. If lengthOfArray is not specified the default lenght of the generated array is 10.
+
 * generateRandomStringsArray(lengthOfArray: number, minStringLength:number, maxStringLength:number) : Generates an array of strings. Only generates random strings with a minimum and maximum length within the specified range. If no minStringLength is specified the minimum length a string in the array can be is 1 character. If no maxStringLength is specified the maximum length a string can be is set to 10 characters. If lengthOfArray is not specified the default lenght of the generated array is 10. The strings will be mixed with lower and upper case letters.
 
 ```javascript
 const arrayGenerator = new ArrayGenerator()
 console.log(arrayGenerator.generateRandomNumbersArray(4, 5, 20)) // Example output: [7, 19, 6, 12]
+console.log(arrayGenerator.generateRandomEvenNumbersArray(4, 5, 20)) // Example output: [6, 14, 8, 12]
 console.log(arrayGenerator.generateRandomStringsArray(5, 3, 8)) // Example output: ["aXe", "COyFx", "kjHgRsD", "abZ", "abCDeFgH"]
 ```
 

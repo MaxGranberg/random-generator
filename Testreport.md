@@ -23,7 +23,9 @@ If you would like to recreate the tests you can follow this basic workflow:
 |**NumberGenerator** - Generate a random even number within a specified range | Call generateRandomEvenNumber(minValue, maxValue) | Passed|
 |**NumberGenerator** - Generate a random odd number in the default range | Call generateRandomOddNumber() without arguments. | Passed|
 |**NumberGenerator** - Generate a random odd number within a specified range | Call generateRandomOddNumber(10, 20) | Passed|
-|**NumberGenerator** - Error when minimum value argument is greater than the maximum value argument. Same validation method is used for all NumberGenerator methods (odd,even and not specified).| Call generateRandomNumber(30,20) | Passed - Error thrown correctly.|
+|**NumberGenerator** - Generate a random float number in the default range | Call generateRandomFloatNumber() without any arguments. | Passed|
+|**NumberGenerator** - Generate a random float number within a specified range | Call generateRandomFloatNumber(10.9, 11) | Passed|
+|**NumberGenerator** - Error when minimum value argument is greater than the maximum value argument. Same validation method is used for all NumberGenerator methods (odd,even, float and not specified).| Call generateRandomNumber(30,20) | Passed - Error thrown correctly.|
 |**NumberGenerator** - Error when minimum value argument is equal to the maximum value argument.| Call generateRandomNumber(20,20) | Passed - Error thrown correctly.|
 |**NumberGenerator** - Error when arguments are not numbers | Call generateRandomNumbers('test', 20) and generateRandomNumber(30, 'a') | Passed - Error thrown correctly.|
 |**DateGenerator** - Generate a date in the default range | Call generateRandomDate() without arguments. | Passed - Generated a random date bewteen 1900-01-01 and 2100-01-01|
@@ -34,7 +36,7 @@ If you would like to recreate the tests you can follow this basic workflow:
 |**ColorGenerator** - Generate a valid HEX color string| Call generateRandomHexColor() and check that the string contains correct values. That the string .toMatch(/^#[0-9A-F]{6}$/) | Passed|
 |**ArrayGenerator** - Generate an array of numbers with the default length | Call generateRandomNumbersArray() without any arguments. | Passed - Generated an array of numbers with a length of the default value 10.|
 |**ArrayGenerator** - Generate an array of numbers with a custom length.| Call generateRandomArray(lengthOfArray) where: lengthOfArray = 14 | Passed - Generated an array of numbers with a length of 14.|
-|**ArrayGenerator** - Generate an array of numbers with the number being within a specified range.| Call generateRandomNumbersArray(lengthOfArray, minValueInArray, maxValueInArray) where: lengthOfArray = 25 , minValueInArray = 2 , maxValueInArray = 15 | Passed - Generated an array with a length of 25 and only with numbers within the specified range.|
+|**ArrayGenerator** - Generate an array of numbers with the numbers being within a specified range.| Call generateRandomNumbersArray(lengthOfArray, minValueInArray, maxValueInArray) where: lengthOfArray = 25 , minValueInArray = 2 , maxValueInArray = 15 | Passed - Generated an array with a length of 25 and only with numbers within the specified range.|
 |**ArrayGenerator** - Error when minValueInArray argument is greater than or equal to maxValueInArray argument within the custom range.| Call generateRandomNumbersArray(lengthOfArray, minValueInArray, maxValueInArray) where : minValueInArray >= maxValueInArray | Passed - Error thrown correctly.|
 |**ArrayGenerator** - Error when lengthOfArray argument is zero or negative | Call generateRandomNumbersArray(lengthOfArray) where: lengthOfArray = -5  , and generateRandomNumbersArray(lengthOfArray) where: lengthOfArray = 0 | Passed - Error thrown correctly.|
 |**ArrayGenerator** - Error when range input arguments are non-numbers | Call generateRandomNumbersArray(15, "test", "test2") | Passed - Error thrown correctly.|
@@ -47,6 +49,10 @@ If you would like to recreate the tests you can follow this basic workflow:
 |**ArrayGenerator** - Error when lengthOfArray argument is less then or equal to zero.| Call generateRandomStringsArray(lengthOfArray) where lengthOfArray <= 0 | Passed - Error thrown correctly.|
 |**ArrayGenerator** - Error if minStringLength and maxStringLength arguments are not numbers | Call generateRandomStringsArray(15, "hej", true) | Passed - Error thrown correctly.|
 |**ArrayGenerator** - Error if lengthOfArray argument is not a number | Call generateRandomStringsArray("test", 10, 20) | Passed - Error thrown correctly.|
+|**ArrayGenerator** - Generate an array of even numbers with the default length when no arguments are passed.| Call generateRandomEvenNumbers() without any arguments.| Passed|
+|**ArrayGenerator** - Generate an array of even numbers with a custom arraylength.| Call generateRandomEvenNumbers(14).| Passed|
+|**ArrayGenerator** - Generate an array of even numbers with the numbers being within a specified range.| Call generateRandomEvenNumbers(25, 2, 15).| Passed|
+|**ArrayGenerator** - Generate an array of even numbers even if the specified range is two consecutive numbers.| Call generateRandomEvenNumbers(8, 2, 3).| Passed|
 
 -------------
 ![Screenshot of test results](tests/testresult.png)
