@@ -28,7 +28,7 @@ class ArrayGenerator {
     const generatedArray = []
 
     for (let i = 0; i < lengthOfArray; i++) {
-      const randomNumber = Math.floor(Math.random() * (maxValueInArray - minValueInArray + 1) + minValueInArray)
+      const randomNumber = this.#generateRandomNumber(minValueInArray, maxValueInArray)
       generatedArray.push(randomNumber)
     }
 
@@ -54,11 +54,23 @@ class ArrayGenerator {
     const generatedArray = []
 
     for (let i = 0; i < lengthOfArray; i++) {
-      const randomLength = Math.floor(Math.random() * (maxStringLength - minStringLength + 1) + minStringLength)
+      const randomLength = this.#generateRandomNumber(minStringLength, maxStringLength)
       generatedArray.push(stringGenerator.generateRandomString(randomLength))
     }
 
     return generatedArray
+  }
+
+  /**
+   * Generates a random number in a given range.
+   *
+   * @param {number} minValue - Minimum value that the user wants for the range of numbers.
+   * @param {number} maxValue - Maximum value that the user wants for the range of numbers.
+   * @returns {number} randomNumber - Returns a number.
+   */
+  #generateRandomNumber (minValue, maxValue) {
+    const randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1) + minValue)
+    return randomNumber
   }
 
   /**
