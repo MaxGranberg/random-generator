@@ -22,7 +22,7 @@ First you'll need to import the generator or generators that you want to use.
 ``` javascript
 import { StringGenerator, NumberGenerator, ArrayGenerator, ColorGenerator, DateGenerator } from 'randomly-generate';
 ```
-
+---
 ### StringGenerator
 Creates a random string with a specific length using the english alphabet. It mixes both lower and upper cases. If no length is specified the default length is 10 characters.
 
@@ -32,7 +32,7 @@ Creates a random string with a specific length using the english alphabet. It mi
 const stringGenerator = new StringGenerator()
 console.log(stringGenerator.generateRandomString(5)) // Example output: "aBcDE"
 ```
-
+----
 ### NumberGenerator
 Generates a random number within a specified range of your choice. If no range is specified it generates a random number between 1 and 10 000.
 
@@ -43,6 +43,18 @@ const numberGenerator = new NumberGenerator()
 console.log(numberGenerator.generateRandomNumber(20, 123)) // Example output: 42
 ```
 
+* generateRandomEvenNumber(minValue:number, maxValue:number) : Generates a random even number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
+```javascript
+const numberGenerator = new NumberGenerator()
+console.log(numberGenerator.generateRandomEvenNumber(20, 82)) // Example output: 42
+```
+
+* generateRandomOddNumber(minValue:number, maxValue:number) : Generates a random odd number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
+```javascript
+const numberGenerator = new NumberGenerator()
+console.log(numberGenerator.generateRandomOddNumber(20, 100)) // Example output: 73
+```
+---
 ### DateGenerator
 Generates a random date object within a specified range. If no range is specified it generates a random date object between 1900-01-01 and 2100-01-01
 
@@ -54,7 +66,7 @@ const startDate = new Date('1996-03-29')
 const endDate = new Date('2023-09-25')
 console.log(dateGenerator.generateRandomDate(startDate, endDate)) // Example output: Mon Nov 17 2008 08:16:28 GMT+0100 (Central European Standard Time)
 ```
-
+----
 ### ColorGenerator
 Can generate both a RGB color and a HEX color as a string.
 
@@ -67,7 +79,7 @@ const colorGenerator = new ColorGenerator()
 console.log(colorGenerator.generateRandomRGBColor()) // Example output: "rgb(43,124,212)"
 console.log(colorGenerator.generateRandomHexColor()) // Example output: "#659df7"
 ```
-
+----
 ### ArrayGenerator
 Can generate an array of random numbers within a specified range. Can also generate an array of strings where the lengths of the strings are random within a specified range. You can also choose a custom length to you array, if not specified it sets the length to 10.
 

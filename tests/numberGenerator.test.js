@@ -42,4 +42,36 @@ describe('NumberGenerator', () => {
       }).toThrow('Values must be of type number')
     })
   })
+
+  describe('generateRandomEvenNumber', () => {
+    it('should generate an even number between 1 and 10000 when no arguments is passed', () => {
+      const number = numberGenerator.generateRandomEvenNumber()
+      expect(number).toBeGreaterThanOrEqual(1)
+      expect(number).toBeLessThanOrEqual(10000)
+      expect(number % 2).toBe(0)
+    })
+
+    it('should generate an even number within a specified range', () => {
+      const number = numberGenerator.generateRandomEvenNumber(10, 20)
+      expect(number).toBeGreaterThanOrEqual(10)
+      expect(number).toBeLessThanOrEqual(20)
+      expect(number % 2).toBe(0)
+    })
+  })
+
+  describe('generateRandomOddNumber', () => {
+    it('should generate an odd number between 1 and 10000 when no arguments is passed', () => {
+      const number = numberGenerator.generateRandomOddNumber()
+      expect(number).toBeGreaterThanOrEqual(1)
+      expect(number).toBeLessThanOrEqual(10000)
+      expect(number % 2).toBe(1)
+    })
+
+    it('should generate an odd number within a specified range', () => {
+      const number = numberGenerator.generateRandomOddNumber(10, 20)
+      expect(number).toBeGreaterThanOrEqual(10)
+      expect(number).toBeLessThanOrEqual(20)
+      expect(number % 2).toBe(1)
+    })
+  })
 })

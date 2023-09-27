@@ -7,7 +7,7 @@ If you would like to recreate the tests you can follow this basic workflow:
 3. Run "npm install" to install dependencies.
 4. Run "npm test" to execute the tests.
 
-### Testresult
+### Test result
 
 | What was tested                     | How it was tested                                   | Result       |
 |-------------------------------------|---------------------------------------------------|----------------|
@@ -19,7 +19,11 @@ If you would like to recreate the tests you can follow this basic workflow:
 |**StringGenerator** - String contains valid characters | Call generateRandomString(100) and checks the characters in the string with a .toMatch(/^[a-zA-Z]+$/). | Passed - Only contained characters from the english alphabet. |
 |**NumberGenerator** - Generate a number in the default range | Call generateRandomNumbers() without arguments.| Passed - Generated a random number between 1 and 10 000.|
 |**NumberGenerator** - Generate a random number within a specified range| Call generateRandomNumber(10,20) where the minimum value a number can be is 10 and the maximum 20.| Passed - Generated a random number in the specified range.|
-|**NumberGenerator** - Error when minimum value argument is greater than the maximum value argument.| Call generateRandomNumber(30,20) | Passed - Error thrown correctly.|
+|**NumberGenerator** - Generate a random even number in the default range | Call generateRandomEvenNumber() without arguments. | Passed|
+|**NumberGenerator** - Generate a random even number within a specified range | Call generateRandomEvenNumber(minValue, maxValue) | Passed|
+|**NumberGenerator** - Generate a random odd number in the default range | Call generateRandomOddNumber() without arguments. | Passed|
+|**NumberGenerator** - Generate a random odd number within a specified range | Call generateRandomOddNumber(10, 20) | Passed|
+|**NumberGenerator** - Error when minimum value argument is greater than the maximum value argument. Same validation method is used for all NumberGenerator methods (odd,even and not specified).| Call generateRandomNumber(30,20) | Passed - Error thrown correctly.|
 |**NumberGenerator** - Error when minimum value argument is equal to the maximum value argument.| Call generateRandomNumber(20,20) | Passed - Error thrown correctly.|
 |**NumberGenerator** - Error when arguments are not numbers | Call generateRandomNumbers('test', 20) and generateRandomNumber(30, 'a') | Passed - Error thrown correctly.|
 |**DateGenerator** - Generate a date in the default range | Call generateRandomDate() without arguments. | Passed - Generated a random date bewteen 1900-01-01 and 2100-01-01|
