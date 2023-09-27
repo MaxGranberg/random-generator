@@ -32,8 +32,10 @@ If you would like to recreate the tests you can follow this basic workflow:
 |**DateGenerator** - Generate a date within a specified range.| Call generateRandomDate(startDate, endDate) where: startDate = new Date('1996-03-29) and endDate = new Date('2023-09-25') | Passed - Generated a random date within specified range.|
 **DateGenerator** - Error when invalid date arguments are passed| Call generateRandomDate(startDate, endDate) where startDate and endDate are not valid Date objects.| Passed - Error thrown correctly.|
 |**DateGenerator** - Error when startDate argument occurs after the endDate | Call generateRandomDate(startDate, endDate) where startDate = new Date('2024-05-01') and endDate = new Date('2023-12-12') | Passed - Error thrown correctly.|
-|**ColorGenerator** - Generate a valid RGB color string| Call generateRandomRGBColor() and check that the string contains correct values. | Passed|
-|**ColorGenerator** - Generate a valid HEX color string| Call generateRandomHexColor() and check that the string contains correct values. That the string .toMatch(/^#[0-9A-F]{6}$/) | Passed|
+|**ColorGenerator** - Generate a valid RGB color string| Call generateRandomRGBColor() and check that the string contains correct values using regex expressions. | Passed|
+|**ColorGenerator** - Generate a valid HEX color string| Call generateRandomHexColor() and check that the string contains the correct values. That the string .toMatch(/^#[0-9A-F]{6}$/) | Passed|
+|**ColorGenerator** - Generate a valid RGBA color string| Call generateRandomRGBAColor() and check that the string contains the correct values using regex expressions. | Passed|
+|**ColorGenerator** - Generate a valid HSL color string| Call generateRandomHslColor() and check that the string contains the correct values using regex expressions. | Passed|
 |**ArrayGenerator** - Generate an array of numbers with the default length | Call generateRandomNumbersArray() without any arguments. | Passed - Generated an array of numbers with a length of the default value 10.|
 |**ArrayGenerator** - Generate an array of numbers with a custom length.| Call generateRandomArray(lengthOfArray) where: lengthOfArray = 14 | Passed - Generated an array of numbers with a length of 14.|
 |**ArrayGenerator** - Generate an array of numbers with the numbers being within a specified range.| Call generateRandomNumbersArray(lengthOfArray, minValueInArray, maxValueInArray) where: lengthOfArray = 25 , minValueInArray = 2 , maxValueInArray = 15 | Passed - Generated an array with a length of 25 and only with numbers within the specified range.|
@@ -56,3 +58,4 @@ If you would like to recreate the tests you can follow this basic workflow:
 
 -------------
 ![Screenshot of test results](tests/testresult.png)
+![Screenshot of test results](tests/testresult2.png)

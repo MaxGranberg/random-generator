@@ -3,6 +3,8 @@
  */
 class ColorGenerator {
   #rgbMaxValue = 256
+  #hueMaxValue = 361
+  #saturationAndLightnessValue = 101
   /**
    * Generates a random RGB color.
    *
@@ -14,6 +16,21 @@ class ColorGenerator {
     const blueValue = Math.floor(Math.random() * this.#rgbMaxValue)
 
     const generatedColor = `rgb(${redValue},${greenValue},${blueValue})`
+    return generatedColor
+  }
+
+  /**
+   * Generates a random RGBA color.
+   *
+   * @returns {string} generatedColor - The random generated RGBA color as a string.
+   */
+  generateRandomRGBAColor () {
+    const redValue = Math.floor(Math.random() * this.#rgbMaxValue)
+    const greenValue = Math.floor(Math.random() * this.#rgbMaxValue)
+    const blueValue = Math.floor(Math.random() * this.#rgbMaxValue)
+    const alphaValue = Math.random().toFixed(2)
+
+    const generatedColor = `rgba(${redValue},${greenValue},${blueValue},${alphaValue})`
     return generatedColor
   }
 
@@ -33,6 +50,20 @@ class ColorGenerator {
     const generatedHexColorString = generatedHexColorArray.join('').toString()
 
     return `#${generatedHexColorString}`
+  }
+
+  /**
+   * Generates a random HSL color.
+   *
+   * @returns {string} generatedHslColorString - The random generated Hsl color as a string.
+   */
+  generateRandomHslColor () {
+    const hue = Math.floor(Math.random() * this.#hueMaxValue)
+    const saturation = Math.floor(Math.random() * this.#saturationAndLightnessValue)
+    const lightness = Math.floor(Math.random() * this.#saturationAndLightnessValue)
+
+    const generatedHslColor = `hsl(${hue},${saturation}%,${lightness}%)`
+    return generatedHslColor
   }
 }
 
