@@ -38,20 +38,14 @@ Generates a random number within a specified range of your choice. If no range i
 
 #### Methods
 * generateRandomNumber(minValue:number, maxValue:number) : Generates a random number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
-```javascript
-const numberGenerator = new NumberGenerator()
-console.log(numberGenerator.generateRandomNumber(20, 123)) // Example output: 42
-```
 
 * generateRandomEvenNumber(minValue:number, maxValue:number) : Generates a random even number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
-```javascript
-const numberGenerator = new NumberGenerator()
-console.log(numberGenerator.generateRandomEvenNumber(20, 82)) // Example output: 42
-```
 
 * generateRandomOddNumber(minValue:number, maxValue:number) : Generates a random odd number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
 ```javascript
 const numberGenerator = new NumberGenerator()
+console.log(numberGenerator.generateRandomNumber(20, 123)) // Example output: 42
+console.log(numberGenerator.generateRandomEvenNumber(20, 82)) // Example output: 24
 console.log(numberGenerator.generateRandomOddNumber(20, 100)) // Example output: 73
 ```
 ---
