@@ -77,7 +77,7 @@ Can generate both a RGB color and a HEX color as a string.
 const colorGenerator = new ColorGenerator()
 console.log(colorGenerator.generateRandomRGBColor()) // Example output: "rgb(43,124,212)"
 console.log(colorGenerator.generateRandomHexColor()) // Example output: "#659df7"
-console.log(colorGenerator.generateRandomHexColor()) // Example output: "rgba(43,124,212,0.55)"
+console.log(colorGenerator.generateRandomRGBAColor()) // Example output: "rgba(43,124,212,0.55)"
 console.log(colorGenerator.generateRandomHslColor()) // Example output: "hsl(280,80%,20%)"
 ```
 ----

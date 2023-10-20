@@ -15,7 +15,7 @@ class ColorGenerator {
     const greenValue = Math.floor(Math.random() * this.#rgbMaxValue)
     const blueValue = Math.floor(Math.random() * this.#rgbMaxValue)
 
-    const generatedColor = `rgb(${redValue},${greenValue},${blueValue})`
+    const generatedColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`
     return generatedColor
   }
 
@@ -30,7 +30,7 @@ class ColorGenerator {
     const blueValue = Math.floor(Math.random() * this.#rgbMaxValue)
     const alphaValue = Math.random().toFixed(2)
 
-    const generatedColor = `rgba(${redValue},${greenValue},${blueValue},${alphaValue})`
+    const generatedColor = `rgba(${redValue}, ${greenValue}, ${blueValue}, ${alphaValue})`
     return generatedColor
   }
 
@@ -62,7 +62,7 @@ class ColorGenerator {
     const saturation = Math.floor(Math.random() * this.#saturationAndLightnessValue)
     const lightness = Math.floor(Math.random() * this.#saturationAndLightnessValue)
 
-    const generatedHslColor = `hsl(${hue},${saturation}%,${lightness}%)`
+    const generatedHslColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`
     return generatedHslColor
   }
 }
