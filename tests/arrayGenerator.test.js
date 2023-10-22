@@ -14,59 +14,58 @@ describe('ArrayGenerator', () => {
     })
 
     it('should generate an array with the correct custom length when it is specified', () => {
-      const lengthOfArray = 14
-      const result = arrayGenerator.generateRandomNumbersArray(lengthOfArray)
-      expect(result.length).toBe(lengthOfArray)
+      const options = { lengthOfArray: 14 }
+      const result = arrayGenerator.generateRandomNumbersArray(options)
+      expect(result.length).toBe(options.lengthOfArray)
     })
 
     it('should generate an array with numbers that is within a specified range', () => {
-      const lengthOfArray = 25
-      const minValue = 2
-      const maxValue = 15
-      const result = arrayGenerator.generateRandomNumbersArray(lengthOfArray, minValue, maxValue)
-      expect(result.length).toBe(lengthOfArray)
+      const options = { lengthOfArray: 25, minValueInArray: 2, maxValueInArray: 15 }
+
+      const result = arrayGenerator.generateRandomNumbersArray(options)
+      expect(result.length).toBe(options.lengthOfArray)
 
       for (const number of result) {
-        expect(number).toBeGreaterThanOrEqual(minValue)
-        expect(number).toBeLessThanOrEqual(maxValue)
+        expect(number).toBeGreaterThanOrEqual(options.minValueInArray)
+        expect(number).toBeLessThanOrEqual(options.maxValueInArray)
       }
     })
 
     it('should throw an error if minValue is greater than or equal to maxValue', () => {
-      const lengthOfArray = 15
-      const minValue = 10
-      const maxValue = 5
+      const options = { lengthOfArray: 15, minValueInArray: 10, maxValueInArray: 5 }
+
       expect(() => {
-        arrayGenerator.generateRandomNumbersArray(lengthOfArray, minValue, maxValue)
+        arrayGenerator.generateRandomNumbersArray(options)
       }).toThrow('Minimum value in the custom range must be less than the maximum value')
 
       expect(() => {
-        arrayGenerator.generateRandomNumbersArray(10, 10, 10)
+        arrayGenerator.generateRandomNumbersArray({ lengthOfArray: 10, minValueInArray: 10, maxValueInArray: 10 })
       }).toThrow('Minimum value in the custom range must be less than the maximum value')
     })
 
     it('should throw an error if custom length of array is less than or equal to zero', () => {
-      const lengthOfArray = -5
+      const options = { lengthOfArray: -5 }
+
       expect(() => {
-        arrayGenerator.generateRandomNumbersArray(lengthOfArray)
+        arrayGenerator.generateRandomNumbersArray(options)
       }).toThrow('Custom length of array must be a number greater than zero')
 
       expect(() => {
-        arrayGenerator.generateRandomNumbersArray(0)
+        arrayGenerator.generateRandomNumbersArray({ lengthOfArray: 0, minValueInArray: 0, maxValueInArray: 0 })
       }).toThrow('Custom length of array must be a number greater than zero')
     })
 
     it('should throw an error if input arguments are not of type number', () => {
-      const lengthOfArray = 15
+      const options = { lengthOfArray: 15, minValueInArray: 'test', maxValueInArray: 'test2' }
       expect(() => {
-        arrayGenerator.generateRandomNumbersArray(lengthOfArray, 'test', 'test2')
+        arrayGenerator.generateRandomNumbersArray(options)
       }).toThrow('Values must be of type number')
     })
 
     it('should throw an error if custom length input argument is not a number', () => {
-      const lengthOfArray = 'test'
+      const options = { lengthOfArray: 'test', minValueInArray: 10, maxValueInArray: 20 }
       expect(() => {
-        arrayGenerator.generateRandomNumbersArray(lengthOfArray, 10, 20)
+        arrayGenerator.generateRandomNumbersArray(options)
       }).toThrow('Custom length value must be of type number')
     })
   })
@@ -78,69 +77,71 @@ describe('ArrayGenerator', () => {
     })
 
     it('should generate an array with the correct custom length when it is specified', () => {
-      const lengthOfArray = 7
-      const result = arrayGenerator.generateRandomStringsArray(lengthOfArray)
-      expect(result.length).toBe(lengthOfArray)
+      const options = { lengthOfArray: 7 }
+
+      const result = arrayGenerator.generateRandomStringsArray(options)
+      expect(result.length).toBe(options.lengthOfArray)
     })
 
     it('should generate an array with strings that are within the specified length', () => {
-      const lengthOfArray = 50
-      const minStringLength = 2
-      const maxStringLength = 15
-      const result = arrayGenerator.generateRandomStringsArray(lengthOfArray, minStringLength, maxStringLength)
-      expect(result.length).toBe(lengthOfArray)
+      const options = { lengthOfArray: 50, minStringLength: 2, maxStringLength: 15 }
+
+      const result = arrayGenerator.generateRandomStringsArray(options)
+      expect(result.length).toBe(options.lengthOfArray)
 
       for (const string of result) {
-        expect(string.length).toBeGreaterThanOrEqual(minStringLength)
-        expect(string.length).toBeLessThanOrEqual(maxStringLength)
+        expect(string.length).toBeGreaterThanOrEqual(options.minStringLength)
+        expect(string.length).toBeLessThanOrEqual(options.maxStringLength)
       }
     })
 
     it('should throw an error if minStringLength is greater than or equal to maxStringLength', () => {
-      const lengthOfArray = 5
-      const minStringLength = 10
-      const maxStringLength = 5
+      const options = { lengthOfArray: 5, minStringLength: 10, maxStringLength: 5 }
+
       expect(() => {
-        arrayGenerator.generateRandomStringsArray(lengthOfArray, minStringLength, maxStringLength)
+        arrayGenerator.generateRandomStringsArray(options)
       }).toThrow('Minimum string length must be less than maximum string length')
 
       expect(() => {
-        arrayGenerator.generateRandomStringsArray(10, 10, 10)
+        arrayGenerator.generateRandomStringsArray({ lengthOfArray: 10, minStringLength: 10, maxStringLength: 10 })
       }).toThrow('Minimum string length must be less than maximum string length')
     })
 
     it('should throw an error if minStringLength is less than or equal to 0', () => {
       expect(() => {
-        arrayGenerator.generateRandomStringsArray(10, -1, 4)
+        arrayGenerator.generateRandomStringsArray({ lengthOfArray: 10, minStringLength: -1, maxStringLength: 4 })
       }).toThrow('Custom string length must be greater than zero')
 
       expect(() => {
-        arrayGenerator.generateRandomStringsArray(10, 0, 4)
+        arrayGenerator.generateRandomStringsArray({ lengthOfArray: 10, minStringLength: 0, maxStringLength: 4 })
       }).toThrow('Custom string length must be greater than zero')
     })
 
     it('should throw an error if custom length of array is less than or equal to 0', () => {
-      const lengthOfArray = -5
+      const options = { lengthOfArray: -5 }
+
       expect(() => {
-        arrayGenerator.generateRandomStringsArray(lengthOfArray)
+        arrayGenerator.generateRandomStringsArray(options)
       }).toThrow('Custom length of array must be a number greater than zero')
 
       expect(() => {
-        arrayGenerator.generateRandomStringsArray(0)
+        arrayGenerator.generateRandomStringsArray({ lengthOfArray: 0 })
       }).toThrow('Custom length of array must be a number greater than zero')
     })
 
     it('should throw an error if input arguments are not of type number', () => {
-      const lengthOfArray = 15
+      const options = { lengthOfArray: 15, minStringLength: 'hej', maxStringLength: true }
+
       expect(() => {
-        arrayGenerator.generateRandomStringsArray(lengthOfArray, 'hej', true)
+        arrayGenerator.generateRandomStringsArray(options)
       }).toThrow('Custom string length inputs must be of type number')
     })
 
     it('should throw an error if custom length input argument is not a number', () => {
-      const lengthOfArray = 'test'
+      const options = { lengthOfArray: 'test' }
+
       expect(() => {
-        arrayGenerator.generateRandomStringsArray(lengthOfArray, 10, 20)
+        arrayGenerator.generateRandomStringsArray(options)
       }).toThrow('Custom length value must be of type number')
     })
   })
@@ -152,35 +153,32 @@ describe('ArrayGenerator', () => {
     })
 
     it('should generate an array with the correct custom length when it is specified', () => {
-      const lengthOfArray = 14
-      const result = arrayGenerator.generateRandomEvenNumbersArray(lengthOfArray)
-      expect(result.length).toBe(lengthOfArray)
+      const options = { lengthOfArray: 14 }
+      const result = arrayGenerator.generateRandomEvenNumbersArray(options)
+      expect(result.length).toBe(options.lengthOfArray)
     })
 
     it('should generate an array with even numbers that is within a specified range', () => {
-      const lengthOfArray = 25
-      const minValue = 2
-      const maxValue = 15
-      const result = arrayGenerator.generateRandomEvenNumbersArray(lengthOfArray, minValue, maxValue)
-      expect(result.length).toBe(lengthOfArray)
+      const options = { lengthOfArray: 25, minValueInArray: 2, maxValueInArray: 15 }
+      const result = arrayGenerator.generateRandomEvenNumbersArray(options)
+      expect(result.length).toBe(options.lengthOfArray)
 
       for (const number of result) {
-        expect(number).toBeGreaterThanOrEqual(minValue)
-        expect(number).toBeLessThanOrEqual(maxValue)
+        expect(number).toBeGreaterThanOrEqual(options.minValueInArray)
+        expect(number).toBeLessThanOrEqual(options.maxValueInArray)
         expect(number % 2).toBe(0)
       }
     })
 
     it('should generate an array with even numbers even if range is two consecutive numbers', () => {
-      const lengthOfArray = 8
-      const minValue = 2
-      const maxValue = 3
-      const result = arrayGenerator.generateRandomEvenNumbersArray(lengthOfArray, minValue, maxValue)
-      expect(result.length).toBe(lengthOfArray)
+      const options = { lengthOfArray: 8, minValueInArray: 2, maxValueInArray: 3 }
+
+      const result = arrayGenerator.generateRandomEvenNumbersArray(options)
+      expect(result.length).toBe(options.lengthOfArray)
 
       for (const number of result) {
-        expect(number).toBeGreaterThanOrEqual(minValue)
-        expect(number).toBeLessThanOrEqual(maxValue)
+        expect(number).toBeGreaterThanOrEqual(options.minValueInArray)
+        expect(number).toBeLessThanOrEqual(options.maxValueInArray)
         expect(number % 2).toBe(0)
       }
     })

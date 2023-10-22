@@ -12,17 +12,23 @@ class ArrayGenerator {
   #stringMinLength = 1
 
   /**
+   * @typedef {object} RandomNumbersArrayOptions
+   * @property {number} [lengthOfArray=this.#defaultArrayLength] - Desired length of array to generate. Default is 10.
+   * @property {number} [minValueInArray=this.#minValueInArray] - Desired minimum value an index can have in the generated array. Default is 1.
+   * @property {number} [maxValueInArray=this.#maxValueInArray] - Desired maximum value an index can have in the generated array. Default is 10,000.
+   */
+
+  /**
    * Generates a random array of numbers.
    *
-   * @param {number} [lengthOfArray=#defaultArrayLength] - Desired length of array to generate.
-   * If not specified the default array length is set to 10.
-   * @param {number} [minValueInArray=this.#minValueInArray] - Desired minimum value a index can have in the generated array.
-   * If not specified the minimum value is set to a default value of 1.
-   * @param {number} [maxValueInArray=this.#maxValueInArray] - Desired maximum value a index can have in the generated array.
-   * If not specified the maximum value is set to a default value of 10 000.
-   * @returns {Array} generatedArray - The random generated array.
+   * @param {RandomNumbersArrayOptions} [options={}] - Configuration object for generating array.
+   * @returns {Array} - The randomly generated array of numbers.
    */
-  generateRandomNumbersArray (lengthOfArray = this.#defaultArrayLength, minValueInArray = this.#minValueInArray, maxValueInArray = this.#maxValueInArray) {
+  generateRandomNumbersArray ({
+    lengthOfArray = this.#defaultArrayLength,
+    minValueInArray = this.#minValueInArray,
+    maxValueInArray = this.#maxValueInArray
+  } = {}) {
     this.#validateLengthOfArray(lengthOfArray)
     this.#validateNumberArray(minValueInArray, maxValueInArray)
 
@@ -38,17 +44,23 @@ class ArrayGenerator {
   }
 
   /**
+   * @typedef {object} RandomStringsArrayOptions
+   * @property {number} [lengthOfArray=this.#defaultArrayLength] - Desired length of array to generate. Default is 10.
+   * @property {number} [minStringLength=this.#stringMinLength] - Minimum length a string can be in the array. Default is 1.
+   * @property {number} [maxStringLength=this.#stringMaxLength] - Maximum length a string can be in the array. Default is 10.
+   */
+
+  /**
    * Generates a random array of strings.
    *
-   * @param {number} [lengthOfArray=#defaultArrayLength] - Desired length of array to generate.
-   * If not specified the default array length is set to 10.
-   * @param {number} [minStringLength=this.#stringMinLength] - The minimum length a string can be in the array.
-   * If not specified the minimum length is set to a default value of 1.
-   * @param {number} [maxStringLength=this.#stringMaxLength] - The maximum length a string can be in the array.
-   * If not specified the maximum length is set to a default value of 10.
-   * @returns {Array} generatedArray - The random generated array.
+   * @param {RandomStringsArrayOptions} [options={}] - Configuration object for generating array of strings.
+   * @returns {Array} - The randomly generated array of strings.
    */
-  generateRandomStringsArray (lengthOfArray = this.#defaultArrayLength, minStringLength = this.#stringMinLength, maxStringLength = this.#stringMaxLength) {
+  generateRandomStringsArray ({
+    lengthOfArray = this.#defaultArrayLength,
+    minStringLength = this.#stringMinLength,
+    maxStringLength = this.#stringMaxLength
+  } = {}) {
     this.#validateLengthOfArray(lengthOfArray)
     this.#validateStringArray(minStringLength, maxStringLength)
 
@@ -65,17 +77,23 @@ class ArrayGenerator {
   }
 
   /**
+   * @typedef {object} EvenNumbersArrayOptions
+   * @property {number} [lengthOfArray=this.#defaultArrayLength] - Desired length of array to generate.
+   * @property {number} [minValueInArray=this.#minValueInArray] - Desired minimum value an index can have in the generated array.
+   * @property {number} [maxValueInArray=this.#maxValueInArray] - Desired maximum value an index can have in the generated array.
+   */
+
+  /**
    * Generates a random array of even numbers.
    *
-   * @param {number} [lengthOfArray=#defaultArrayLength] - Desired length of array to generate.
-   * If not specified the default array length is set to 10.
-   * @param {number} [minValueInArray=this.#minValueInArray] - Desired minimum value a index can have in the generated array.
-   * If not specified the minimum value is set to a default value of 1.
-   * @param {number} [maxValueInArray=this.#maxValueInArray] - Desired maximum value a index can have in the generated array.
-   * If not specified the maximum value is set to a default value of 10 000.
-   * @returns {Array} generatedArray - The random generated array.
+   * @param {EvenNumbersArrayOptions} [options={}] - Configuration object for generating array.
+   * @returns {Array} - The randomly generated array of even numbers.
    */
-  generateRandomEvenNumbersArray (lengthOfArray = this.#defaultArrayLength, minValueInArray = this.#minValueInArray, maxValueInArray = this.#maxValueInArray) {
+  generateRandomEvenNumbersArray ({
+    lengthOfArray = this.#defaultArrayLength,
+    minValueInArray = this.#minValueInArray,
+    maxValueInArray = this.#maxValueInArray
+  } = {}) {
     this.#validateLengthOfArray(lengthOfArray)
     this.#validateNumberArray(minValueInArray, maxValueInArray)
 

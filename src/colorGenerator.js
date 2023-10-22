@@ -6,11 +6,11 @@ class ColorGenerator {
   #hueMaxValue = 361
   #saturationAndLightnessValue = 101
   /**
-   * Generates a random RGB color.
+   * Generates a random RGB color string.
    *
    * @returns {string} generatedColor - The random generated RGB color as a string.
    */
-  generateRandomRGBColor () {
+  generateRandomRGBString () {
     const redValue = Math.floor(Math.random() * this.#rgbMaxValue)
     const greenValue = Math.floor(Math.random() * this.#rgbMaxValue)
     const blueValue = Math.floor(Math.random() * this.#rgbMaxValue)
@@ -20,11 +20,11 @@ class ColorGenerator {
   }
 
   /**
-   * Generates a random RGBA color.
+   * Generates a random RGBA color string.
    *
    * @returns {string} generatedColor - The random generated RGBA color as a string.
    */
-  generateRandomRGBAColor () {
+  generateRandomRGBAString () {
     const redValue = Math.floor(Math.random() * this.#rgbMaxValue)
     const greenValue = Math.floor(Math.random() * this.#rgbMaxValue)
     const blueValue = Math.floor(Math.random() * this.#rgbMaxValue)
@@ -35,11 +35,11 @@ class ColorGenerator {
   }
 
   /**
-   * Generates a random HEX color.
+   * Generates a random HEX color string.
    *
    * @returns {string} generatedHexColorString - The random generated HEX color as a string.
    */
-  generateRandomHexColor () {
+  generateRandomHEXString () {
     const hexCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
     const randomHexArray = Array.from({ length: 6 })
 
@@ -53,11 +53,11 @@ class ColorGenerator {
   }
 
   /**
-   * Generates a random HSL color.
+   * Generates a random HSL color string.
    *
    * @returns {string} generatedHslColorString - The random generated Hsl color as a string.
    */
-  generateRandomHslColor () {
+  generateRandomHSLString () {
     const hue = Math.floor(Math.random() * this.#hueMaxValue)
     const saturation = Math.floor(Math.random() * this.#saturationAndLightnessValue)
     const lightness = Math.floor(Math.random() * this.#saturationAndLightnessValue)

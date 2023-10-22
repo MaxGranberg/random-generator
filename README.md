@@ -27,7 +27,7 @@ import { StringGenerator, NumberGenerator, ArrayGenerator, ColorGenerator, DateG
 Creates a random string with a specific length using the english alphabet. It mixes both lower and upper cases. If no length is specified the default length is 10 characters.
 
 #### Methods
-* generateRandomString(customLength:number) : Generates a random string with a custom length if customLength is specified. Otherwise the length is set to a default of 10 chartacters.
+* `generateRandomString(customLength:number)` : Generates a random string with a custom length if customLength is specified. Otherwise the length is set to a default of 10 chartacters.
 ```javascript
 const stringGenerator = new StringGenerator()
 console.log(stringGenerator.generateRandomString(5)) // Example output: "aBcDE"
@@ -37,13 +37,13 @@ console.log(stringGenerator.generateRandomString(5)) // Example output: "aBcDE"
 Generates a random number within a specified range of your choice. If no range is specified it generates a random number between 1 and 10 000.
 
 #### Methods
-* generateRandomNumber(minValue:number, maxValue:number) : Generates a random number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
+* `generateRandomNumber(minValue:number, maxValue:number)` : Generates a random number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
 
-* generateRandomEvenNumber(minValue:number, maxValue:number) : Generates a random even number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
+* `generateRandomEvenNumber(minValue:number, maxValue:number)` : Generates a random even number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
 
-* generateRandomOddNumber(minValue:number, maxValue:number) : Generates a random odd number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
+* `generateRandomOddNumber(minValue:number, maxValue:number)` : Generates a random odd number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
 
-* generateRandomFloatNumber(minValue:number, maxValue:number) : Generates a random float number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
+* `generateRandomFloatNumber(minValue:number, maxValue:number)` : Generates a random float number within the range of minValue and maxValue. If no values are specified the default minValue is set to 1 and the maxValue is set to 10 000.
 ```javascript
 const numberGenerator = new NumberGenerator()
 console.log(numberGenerator.generateRandomNumber(20, 123)) // Example output: 42
@@ -56,7 +56,7 @@ console.log(numberGenerator.generateRandomFloatNumber(10.9, 11)) // Example outp
 Generates a random date object within a specified range. If no range is specified it generates a random date object between 1900-01-01 and 2100-01-01
 
 #### Methods
-* generateRandomDate(startDate:Date, endDate:Date) : Generates a random date object within the specified range. If no startDate is specified it is set to 1900-01-01 and if no endDate is specified it it set to 2100-01-01
+* `generateRandomDate(startDate:Date, endDate:Date)` : Generates a random date object within the specified range. If no startDate is specified it is set to 1900-01-01 and if no endDate is specified it it set to 2100-01-01
 ```javascript
 const dateGenerator = new DateGenerator()
 const startDate = new Date('1996-03-29')
@@ -65,37 +65,46 @@ console.log(dateGenerator.generateRandomDate(startDate, endDate)) // Example out
 ```
 ----
 ### ColorGenerator
-Can generate both a RGB color and a HEX color as a string.
+Can generate RGB, RGBA, HEX and HSL colors as a string.
 
 #### Methods
-* generateRandomRGBColor() : Generates a random RGB color as a string.
-* generateRandomHexColor() : Generates a random Hex color as a string.
-* generateRandomRGBAColor() : Generates a random RGBA color as a string.
-* generateRandomHslColor() : Generates a random Hsl color as a string.
+* `generateRandomRGBString()` : Generates a random RGB color as a string.
+* `generateRandomHEXString()` : Generates a random Hex color as a string.
+* `generateRandomRGBAString()` : Generates a random RGBA color as a string.
+* `generateRandomHSLString()` : Generates a random Hsl color as a string.
 
 ```javascript
 const colorGenerator = new ColorGenerator()
-console.log(colorGenerator.generateRandomRGBColor()) // Example output: "rgb(43,124,212)"
-console.log(colorGenerator.generateRandomHexColor()) // Example output: "#659df7"
-console.log(colorGenerator.generateRandomRGBAColor()) // Example output: "rgba(43,124,212,0.55)"
-console.log(colorGenerator.generateRandomHslColor()) // Example output: "hsl(280,80%,20%)"
+console.log(colorGenerator.generateRandomRGBString()) // Example output: "rgb(43,124,212)"
+console.log(colorGenerator.generateRandomHEXString()) // Example output: "#659df7"
+console.log(colorGenerator.generateRandomRGBAString()) // Example output: "rgba(43,124,212,0.55)"
+console.log(colorGenerator.generateRandomHSLString()) // Example output: "hsl(280,80%,20%)"
 ```
 ----
 ### ArrayGenerator
-Can generate an array of random numbers within a specified range. Can also generate an array of strings where the lengths of the strings are random within a specified range. You can also choose a custom length to you array, if not specified it sets the length to 10.
+Can generate an array of random numbers or an array with only even numbers within a specified range. Can also generate an array of strings where the lengths of the strings are random within a specified range. You can also choose a custom length to your array, if not specified it sets the length to 10.
 
-#### Methods
-* generateRandomNumbersArray(lengthOfArray:number, minValueInArray:number, maxValueInArray:number) : Generates an array of numbers. Only generates random numbers within the given range. If no range is specified the minValueInArray is set to 1 and the maxValueInArray is set to 10 000. If lengthOfArray is not specified the default lenght of the generated array is 10.
+#### Configuration Options:
+- `lengthOfArray`: Desired length of the generated array. Default is 10.
+- For number arrays:
+  - `minValueInArray`: Minimum value an index in the array can be. Default is 1.
+  - `maxValueInArray`: Maximum value an index in the array can be. Default is 10,000.
+- For string arrays:
+  - `minStringLength`: Minimum length a string in the array can be. Default is 1.
+  - `maxStringLength`: Maximum length a string in the array can be. Default is 10.
 
-* generateRandomEvenNumbersArray(lengthOfArray:number, minValueInArray:number, maxValueInArray:number) : Generates an array of even numbers. Only generates random even numbers within the given range. If no range is specified the minValueInArray is set to 1 and the maxValueInArray is set to 10 000. If lengthOfArray is not specified the default lenght of the generated array is 10.
+#### Methods:
+- `generateRandomNumbersArray({ lengthOfArray, minValueInArray, maxValueInArray })`: Generates an array of numbers within the given range. If no range or length is provided, default values are applied.
 
-* generateRandomStringsArray(lengthOfArray: number, minStringLength:number, maxStringLength:number) : Generates an array of strings. Only generates random strings with a minimum and maximum length within the specified range. If no minStringLength is specified the minimum length a string in the array can be is 1 character. If no maxStringLength is specified the maximum length a string can be is set to 10 characters. If lengthOfArray is not specified the default lenght of the generated array is 10. The strings will be mixed with lower and upper case letters.
+- `generateRandomEvenNumbersArray({ lengthOfArray, minValueInArray, maxValueInArray })`: Generates an array of even numbers within the given range. If no range or length is provided, default values are applied.
+
+- `generateRandomStringsArray({ lengthOfArray, minStringLength, maxStringLength })`: Generates an array of strings with lengths randomized within the specified range. If no range, string length, or array length is provided, default values are applied. Only generates random strings.
 
 ```javascript
 const arrayGenerator = new ArrayGenerator()
-console.log(arrayGenerator.generateRandomNumbersArray(4, 5, 20)) // Example output: [7, 19, 6, 12]
-console.log(arrayGenerator.generateRandomEvenNumbersArray(4, 5, 20)) // Example output: [6, 14, 8, 12]
-console.log(arrayGenerator.generateRandomStringsArray(5, 3, 8)) // Example output: ["aXe", "COyFx", "kjHgRsD", "abZ", "abCDeFgH"]
+console.log(arrayGenerator.generateRandomNumbersArray({lengthOfArray: 4, minValueInArray: 5, maxValueInArray: 20})); // Possible output: [7, 19, 6, 12]
+console.log(arrayGenerator.generateRandomEvenNumbersArray({lengthOfArray: 4, minValueInArray: 5, maxValueInArray: 20})); // Possible output: [6, 14, 8, 12]
+console.log(arrayGenerator.generateRandomStringsArray({lengthOfArray: 5, minStringLength: 3, maxStringLength: 8})); // Possible output: ["aXe", "COyFx", "kjHgRsD", "abZ", "abCDeFgH"]
 ```
 
 ## Contributions

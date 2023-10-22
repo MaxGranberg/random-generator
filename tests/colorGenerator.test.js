@@ -9,7 +9,7 @@ describe('ColorGenerator', () => {
 
   describe('generateRandomRGBColor', () => {
     it('should generate a valid RGB color string', () => {
-      const result = colorGenerator.generateRandomRGBColor()
+      const result = colorGenerator.generateRandomRGBString()
       expect(result).toMatch(/^rgb\(\d{1,3}, \d{1,3}, \d{1,3}\)$/)
 
       // Extract numbers from string and check if they are within the range 0-255
@@ -23,14 +23,14 @@ describe('ColorGenerator', () => {
 
   describe('generateRandomHexColor', () => {
     it('should generate a valid HEX color string', () => {
-      const result = colorGenerator.generateRandomHexColor()
+      const result = colorGenerator.generateRandomHEXString()
       expect(result).toMatch(/^#[0-9A-F]{6}$/)
     })
   })
 
   describe('generateRandomRGBAColor', () => {
     it('should generate a valid RGBA color string', () => {
-      const result = colorGenerator.generateRandomRGBAColor()
+      const result = colorGenerator.generateRandomRGBAString()
       expect(result).toMatch(/^rgba\(\d{1,3}, \d{1,3}, \d{1,3}, (0(\.\d{1,2})?|1(\.0{1,2})?)\)$/)
 
       // Extract numbers from string and check if they are within their correct ranges
@@ -47,7 +47,7 @@ describe('ColorGenerator', () => {
 
   describe('generateRandomHslColor', () => {
     it('should generate a valid HSL color string', () => {
-      const result = colorGenerator.generateRandomHslColor()
+      const result = colorGenerator.generateRandomHSLString()
       expect(result).toMatch(/^hsl\(\d{1,3}, \d{1,3}%, \d{1,3}%\)$/)
 
       // Extract numbers from string and check if they are within their correct ranges
